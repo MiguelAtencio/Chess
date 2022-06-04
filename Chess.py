@@ -195,34 +195,36 @@ class Chess(King, Queen, Bishop, Knight, Pawn):
 
 
 	def checkwithpawn(self, x, y):
+		
+		if self.board[x][y] != '0':
 
-		if self.board[x][y].colour == 'White':
+			if self.board[x][y].colour == 'White':
 
-			if x - 1 > -1 and y + 1 < 8:
-				
-				if self.board[x-1][y+1] == '0':
+				if x - 1 > -1 and y + 1 < 8:
 
-					self.board[x][y].checks.append((x-1, y+1)) 
+					if self.board[x-1][y+1] == '0':
 
-			if x - 1 > -1 and y - 1 > -1:
+						self.board[x][y].checks.append((x-1, y+1)) 
 
-				if self.board[x-1][y-1] == '0':
+				if x - 1 > -1 and y - 1 > -1:
 
-					self.board[x][y].checks.append((x-1, y-1))
+					if self.board[x-1][y-1] == '0':
 
-		else:
+						self.board[x][y].checks.append((x-1, y-1))
 
-			if x + 1 < 8 and y + 1 < 8:
-				
-				if self.board[x+1][y+1] == '0':
+			else:
 
-					self.board[x][y].checks.append((x+1, y+1)) 
+				if x + 1 < 8 and y + 1 < 8:
 
-			if x + 1 < 8 and y - 1 > -1:
+					if self.board[x+1][y+1] == '0':
 
-				if self.board[x+1][y-1] == '0':
+						self.board[x][y].checks.append((x+1, y+1)) 
 
-					self.board[x][y].checks.append((x+1, y-1))
+				if x + 1 < 8 and y - 1 > -1:
+
+					if self.board[x+1][y-1] == '0':
+
+						self.board[x][y].checks.append((x+1, y-1))
 
 
 
